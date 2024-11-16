@@ -10,14 +10,18 @@ describe('Export Content Test', () => {
     // Given
     cy.intercept('GET', '**/ghost/api/admin/db/').as('exportRequest');
     migrationPage.visit();
+    cy.screenshot('Export/step-1-visit-page'); 
 
     // When
     migrationPage.clickExport();
-    migrationPage.confirmExport();
+    cy.screenshot('Export/step-2-click-export'); 
 
+    migrationPage.confirmExport();
+    cy.screenshot('Export/step-3-confirm-export'); 
     // Then
     cy.wait('@exportRequest').then((interception) => {
       migrationPage.validateExportResponse(interception);
+      cy.screenshot('Export/step-4-validate-response'); 
     });
   });
 });
