@@ -1,5 +1,10 @@
 # Pruebas_automatizadas
 
+# - Pruebas de Extremo a Extremo
+# Integrantes:  
+
+Jhoan Felipe Sarmiento Ortiz jf.sarmiento23@uniandes.edu.co
+
 # Paso a Paso para Ejecutar las Pruebas con Cypress
 
 ## 1. Clonar el Proyecto desde GitHub
