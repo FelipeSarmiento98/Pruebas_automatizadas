@@ -53,9 +53,10 @@ En la interfaz, selecciona tu navegador de preferencia, como Chrome o cualquier 
 ## 5. Ejecutar las Pruebas
 Dentro de la interfaz de Cypress, selecciona las pruebas que deseas ejecutar. Estas se encuentran en la carpeta:
 ```bash
-cypress/e2e
+cypress/e2e/funcionalidades
 ```
-Haz clic en la prueba que deseas ejecutar para iniciarla.
+Navega a la carpeta de la funcionalidad de su interes y haz click en la prueba que deseas ejecutar para iniciarla.
+Cada archivo corresponde a un escenario de prueba.
 
 ## Requisitos Previos
 Antes de ejecutar las pruebas, asegúrate de que estás corriendo la versión correcta de Ghost en tu entorno local:
@@ -75,9 +76,4 @@ ghost start
 Confirma que Ghost esté corriendo correctamente accediendo a:
 ```bash
 http://localhost:2368
-```
-
-## Notas Finales
-- Si estás corriendo varias versiones de Ghost en local, asegúrate de que estás utilizando la versión esperada para las pruebas.
-- Documenta los resultados de cada prueba en un reporte si es necesario.
 ```
