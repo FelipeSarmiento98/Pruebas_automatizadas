@@ -55,7 +55,7 @@ Dentro de la interfaz de Cypress, selecciona las pruebas que deseas ejecutar. Es
 ```bash
 cypress/e2e/funcionalidades
 ```
-Navega a la carpeta de la funcionalidad de su interes y haz click en la prueba que deseas ejecutar para iniciarla.
+Navega a la carpeta de la funcionalidad de su interes y haz click en el arhivo F0xx-Ex.cy.js que deseas ejecutar para iniciarla.
 Cada archivo corresponde a un escenario de prueba.
 
 ## Requisitos Previos
