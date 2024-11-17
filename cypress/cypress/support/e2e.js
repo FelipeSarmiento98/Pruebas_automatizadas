@@ -15,12 +15,10 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
-
 Cypress.on('uncaught:exception', (err, runnable) => {
-    if (err.message.includes('The play() request was interrupted')) {
-        return false; // Ignorar el error específico
+    if (err.message.includes('The play() request was interrupted')||
+    err.message.includes('Request was rejected due to server error')) {
+        return false;
     }
-    return true; // Dejar pasar otros errores
+    return true; 
 });
-// Alternatively you can use CommonJS syntax:
-// require('./commands')

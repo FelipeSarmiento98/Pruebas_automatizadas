@@ -28,13 +28,11 @@ export class MigrationPage {
     }
   
     validateExportResponse(interception) {
-      // Validar que la solicitud fue exitosa
+
       expect(interception.response.statusCode).to.equal(200);
   
-      // Validar el tipo de contenido devuelto
       expect(interception.response.headers['content-type']).to.include('application/json');
   
-      // Validar la estructura del archivo exportado
       const exportData = interception.response.body;
       expect(exportData).to.have.property('db');
   

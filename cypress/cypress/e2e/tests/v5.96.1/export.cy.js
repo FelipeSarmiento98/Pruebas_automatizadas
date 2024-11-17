@@ -1,5 +1,5 @@
-import { loginPage } from '../pages/loginPage';
-import { migrationPage } from '../pages/migrationPage';
+import { loginPage } from '../../pages/v5.96.1/loginPage';
+import { migrationPage } from '../../pages/v5.96.1/migrationPage';
 
 describe('Export Content Test', () => {
   beforeEach(() => {
@@ -10,18 +10,18 @@ describe('Export Content Test', () => {
     // Given
     cy.intercept('GET', '**/ghost/api/admin/db/').as('exportRequest');
     migrationPage.visit();
-    cy.screenshot('Export/step-1-visit-page'); 
+    cy.screenshot('v5.96.1/Export/step-1-visit-page'); 
 
     // When
     migrationPage.clickExport();
-    cy.screenshot('Export/step-2-click-export'); 
+    cy.screenshot('v5.96.1/Export/step-2-click-export'); 
 
     migrationPage.confirmExport();
-    cy.screenshot('Export/step-3-confirm-export'); 
+    cy.screenshot('v5.96.1/Export/step-3-confirm-export'); 
     // Then
     cy.wait('@exportRequest').then((interception) => {
       migrationPage.validateExportResponse(interception);
-      cy.screenshot('Export/step-4-validate-response'); 
+      cy.screenshot('v5.96.1/Export/step-4-validate-response'); 
     });
   });
 });

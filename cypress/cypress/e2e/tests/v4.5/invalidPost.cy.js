@@ -1,5 +1,5 @@
-import { loginPage } from '../pages/loginPage';
-import { editorPage } from '../pages/editorPage';
+import { loginPage } from '../../pages/v4.5/loginPage';
+import { editorPage } from '../../pages/v4.5/editorPage';
 
 describe('Invalid Post Test', () => {
   beforeEach(() => {
@@ -9,17 +9,17 @@ describe('Invalid Post Test', () => {
   it('Should show an error if attempting to publish without a title', () => {
     // Given
     editorPage.visit();
-    cy.screenshot('InvalidPost/step-1-visit-page'); 
+    cy.screenshot('v4.5/InvalidPost/step-1-visit-page'); 
 
     // When
     editorPage.fillContent('Contenido sin título');
-    cy.screenshot('InvalidPost/step-2-fill-content'); 
+    cy.screenshot('v4.5/InvalidPost/step-2-fill-content'); 
 
     editorPage.publishPost();
-    cy.screenshot('InvalidPost/step-3-attempt-publish'); 
+    cy.screenshot('v4.5/InvalidPost/step-3-attempt-publish'); 
 
     // Then
     editorPage.validateSuccessModalNotExists();
-    cy.screenshot('InvalidPost/step-4-validate-no-success-modal'); 
+    cy.screenshot('v4.5/InvalidPost/step-4-validate-no-success-modal'); 
   });
 });
