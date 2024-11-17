@@ -9,6 +9,7 @@ describe('Markdown Post Test', () => {
   it('Should correctly render content in Markdown', () => {
     // Given
     editorPage.visit();
+    cy.get('.koenig-react-editor', { timeout: 10000 }).should('be.visible'); 
     cy.screenshot('v5.96.1/MarkdownPost/step-1-visit-page'); 
 
     // When
@@ -19,6 +20,7 @@ describe('Markdown Post Test', () => {
     cy.screenshot('v5.96.1/MarkdownPost/step-3-fill-content'); 
 
     editorPage.publishPost();
+    cy.wait(1000);
     cy.screenshot('v5.96.1/MarkdownPost/step-4-publish-post'); 
 
     // Then

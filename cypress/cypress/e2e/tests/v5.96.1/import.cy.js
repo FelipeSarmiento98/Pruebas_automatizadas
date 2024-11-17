@@ -9,6 +9,7 @@ describe('Import Invalid File Test', () => {
   it('Should show an error message when importing an invalid file', () => {
     // Given
     migrationPage.visit();
+    cy.get('button[title="Import"]').should('be.visible'); 
     cy.screenshot('v5.96.1/Import/step-1-visit-page'); 
 
     // When

@@ -59,6 +59,12 @@ export class EditorPage {
         cy.get('div.modal-post-success').should('not.be.visible');
         cy.get('div.modal-post-success').should('not.exist');
     }
+    
+    waitForNoSuccessModal() {
+      cy.log('Waiting to ensure no success modal is displayed');
+      cy.get('div.modal-post-success', { timeout: 5000 }).should('not.exist');
+    }
+    
   }
   
   export const editorPage = new EditorPage();

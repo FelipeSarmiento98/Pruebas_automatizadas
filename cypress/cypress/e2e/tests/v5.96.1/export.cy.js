@@ -10,6 +10,7 @@ describe('Export Content Test', () => {
     // Given
     cy.intercept('GET', '**/ghost/api/admin/db/').as('exportRequest');
     migrationPage.visit();
+    cy.get('button[title="Export"]').should('be.visible'); 
     cy.screenshot('v5.96.1/Export/step-1-visit-page'); 
 
     // When

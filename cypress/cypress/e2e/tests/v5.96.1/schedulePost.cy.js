@@ -9,6 +9,7 @@ describe('Schedule Post in Ghost', () => {
   it('Should schedule a post for a future date', () => {
     // Given
     editorPage.visit();
+    cy.get('.koenig-react-editor', { timeout: 10000 }).should('be.visible'); 
     cy.screenshot('v5.96.1/ScheduledPost/step-1-visit-page'); 
 
     // When
@@ -19,6 +20,7 @@ describe('Schedule Post in Ghost', () => {
     cy.screenshot('v5.96.1/ScheduledPost/step-3-fill-content'); 
 
     editorPage.schedulePost();
+    cy.wait(1000);
     cy.screenshot('v5.96.1/ScheduledPost/step-4-schedule-post'); 
 
     // Then
