@@ -26,7 +26,7 @@ describe('Import Invalid File Test', () => {
 
     // Then
     migrationPage.validateErrorToast('check that the import file is valid JSON.: Expected "," but "[" found.');
-    cy.screenshot('v4.5/Import/step-3-validate-error-toast');
+    cy.screenshot('v4.5/Import/step-4-validate-error-toast');
 
     migrationPage.validateConfirmationModalNotExists();
     cy.screenshot('v4.5/Import/step-5-validate-no-confirmation-modal'); 

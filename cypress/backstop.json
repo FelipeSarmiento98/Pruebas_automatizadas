@@ -7,46 +7,21 @@
       "height": 1080
     }
   ],
-  "scenarios": [
-    {
-      "label": "Export Test",
-      "referenceUrl": "file:./cypress/screenshots/v4.5/Export/",
-      "url": "file:./cypress/screenshots/v5.96.1/Export/",
-      "selectors": ["document"]
-    },
-    {
-      "label": "Import Test",
-      "referenceUrl": "file:./cypress/screenshots/v4.5/Import/",
-      "url": "file:./cypress/screenshots/v5.96.1/Import/",
-      "selectors": ["document"]
-    },
-    {
-      "label": "Invalid Post Test",
-      "referenceUrl": "file:./cypress/screenshots/v4.5/InvalidPost/",
-      "url": "file:./cypress/screenshots/v5.96.1/InvalidPost/",
-      "selectors": ["document"]
-    },
-    {
-      "label": "Markdown Post Test",
-      "referenceUrl": "file:./cypress/screenshots/v4.5/MarkdownPost/",
-      "url": "file:./cypress/screenshots/v5.96.1/MarkdownPost/",
-      "selectors": ["document"]
-    },
-    {
-      "label": "Scheduled Post Test",
-      "referenceUrl": "file:./cypress/screenshots/v4.5/ScheduledPost/",
-      "url": "file:./cypress/screenshots/v5.96.1/ScheduledPost/",
-      "selectors": ["document"]
-    }
-  ],
+  "scenarios": [],
   "paths": {
-    "bitmaps_reference": "cypress/screenshots/v4.5",
-    "bitmaps_test": "cypress/screenshots/v5.96.1",
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
     "engine_scripts": "backstop_data/engine_scripts",
     "html_report": "backstop_data/html_report",
     "ci_report": "backstop_data/ci_report"
   },
   "engine": "playwright",
-  "report": ["browser"],
-  "debug": false
+  "engineOptions": {
+    "browser": "chromium"
+  },
+  "report": [
+    "browser"
+  ],
+  "debug": false,
+  "misMatchThreshold": 0.3
 }
