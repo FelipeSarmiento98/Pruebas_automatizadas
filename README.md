@@ -85,7 +85,6 @@ http://localhost:2368
 
 ¡Claro! Aquí tienes la guía en formato Markdown:
 
-```markdown
 # Guía para Ejecutar Pruebas de Extremo a Extremo con Kraken
 
 ## 1. Clonar el Proyecto desde GitHub
