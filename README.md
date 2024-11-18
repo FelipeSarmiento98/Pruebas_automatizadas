@@ -83,6 +83,9 @@ http://localhost:2368
 ```
 
 ## Configuración de Cypress
+
+### Configuración de Credenciales en command.js
+Para automatizar el inicio de sesión en Ghost, agrega tus credenciales en el archivo cypress/support/command.js.
 Al correr las pruebas, usa el siguiente comando para establecer la URL base:
 
 Para la versión 4.5 de Ghost (se usó el puerto 2369):
