@@ -171,6 +171,5 @@ ghost start
 ```
 
 Los reportes generados se almacenarán en la carpeta reports dentro de cada versión de Kraken.
-```
 
 
