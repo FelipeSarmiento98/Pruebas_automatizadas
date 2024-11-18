@@ -82,3 +82,81 @@ Confirma que Ghost esté corriendo correctamente accediendo a:
 ```bash
 http://localhost:2368
 ```
+
+# Guía para Ejecutar Pruebas de Extremo a Extremo con Kraken
+
+## 1. Clonar el Proyecto desde GitHub
+Descarga el repositorio en tu máquina local y navega a la carpeta del proyecto:
+
+```bash
+git clone https://github.com/<usuario>/<repositorio>.git
+cd <repositorio>
+2. Cambiar a la Versión de Kraken
+Navega a la carpeta de la versión de Kraken que deseas ejecutar (por ejemplo, krakenv4.5 o krakenv5.96.1):
+
+bash
+Copiar código
+cd krakenv4.5
+3. Configurar Node.js para Kraken
+Kraken requiere Node.js v16. Si estás utilizando NVM, cambia a la versión correcta:
+
+bash
+Copiar código
+nvm use 16
+Si no tienes Node.js v16 instalado, agrégalo con:
+
+bash
+Copiar código
+nvm install 16
+nvm use 16
+4. Configurar el Archivo properties.json
+Dentro de cada carpeta de Kraken (krakenv4.5 o krakenv5.96.1), hay un archivo llamado properties.json. Este archivo contiene las credenciales y el puerto del servidor local de Ghost. Asegúrate de configurarlo correctamente:
+
+Para la versión 5.9 de Kraken:
+
+json
+Copiar código
+{
+  "host": "http://localhost:2368",
+  "username": "admin@example.com",
+  "password": "adminpassword"
+}
+Para la versión 4.5 de Kraken:
+
+json
+Copiar código
+{
+  "host": "http://localhost:2369",
+  "username": "admin@example.com",
+  "password": "adminpassword"
+}
+5. Instalar Dependencias
+Instala las dependencias necesarias para ejecutar Kraken:
+
+bash
+Copiar código
+npm install
+6. Ejecutar Kraken
+Ejecuta Kraken con el siguiente comando:
+
+bash
+Copiar código
+./node_modules/kraken-node/bin/kraken-node run
+Este comando iniciará las pruebas de extremo a extremo configuradas para esta versión.
+
+7. Repetir el Proceso para Otra Versión de Kraken
+Si necesitas comparar dos versiones de Kraken, repite los pasos 2 al 6 para la segunda versión (por ejemplo, krakenv5.96.1).
+
+Notas Adicionales
+Asegúrate de que el archivo properties.json esté correctamente configurado con las credenciales de administrador y el puerto del servidor Ghost correspondiente:
+
+Para la versión 5.9: Puerto 2368.
+Para la versión 4.5: Puerto 2369.
+Ghost debe estar corriendo en tu entorno local para que Kraken pueda interactuar con la aplicación. Si no está iniciado, usa:
+
+bash
+Copiar código
+ghost start
+Los reportes generados se almacenarán en la carpeta reports dentro de cada versión de Kraken.
+```
+
