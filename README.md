@@ -58,10 +58,9 @@ En la interfaz, selecciona tu navegador de preferencia, como Chrome o cualquier 
 ## 5. Ejecutar las Pruebas
 Dentro de la interfaz de Cypress, selecciona las pruebas que deseas ejecutar. Estas se encuentran en la carpeta:
 ```bash
-cypress/e2e/funcionalidades
+cypress/e2e/tests
 ```
-Navega a la carpeta de la funcionalidad de su interes y haz click en el arhivo F0xx-Ex.cy.js que deseas ejecutar para iniciarla.
-Cada archivo corresponde a un escenario de prueba.
+Navega a la carpeta de la versión de tu interés: v4.5 o v5.96.1.
 
 ## Requisitos Previos
 Antes de ejecutar las pruebas, asegúrate de que estás corriendo la versión correcta de Ghost en tu entorno local:
@@ -83,7 +82,21 @@ Confirma que Ghost esté corriendo correctamente accediendo a:
 http://localhost:2368
 ```
 
-¡Claro! Aquí tienes la guía en formato Markdown:
+## Configuración de Cypress
+Al correr las pruebas, usa el siguiente comando para establecer la URL base:
+
+Para la versión 4.5 de Ghost (se usó el puerto 2369):
+```bash
+CYPRESS_BASE_URL='http://localhost:2369/ghost' npx cypress open
+```
+Solo se correrán las pruebas en `cypress/e2e/tests/v4.5`.
+
+Para la versión 5.96.1 de Ghost (se usó puerto 2368):
+```bash
+CYPRESS_BASE_URL='http://localhost:2368/ghost' npx cypress open
+```
+Solo se correrán las pruebas en `cypress/e2e/tests/v5.96.1`.
+
 
 # Guía para Ejecutar Pruebas de Extremo a Extremo con Kraken
 
