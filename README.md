@@ -203,9 +203,7 @@ Este proyecto permite ejecutar pruebas de regresión visual para comparar captur
    ```bash
    nvm install 18
    nvm use 18
-¡Claro! Aquí tienes el contenido en formato Markdown para tu archivo README en GitHub:
 
-```markdown
 # Proyecto de Pruebas de Regresión Visual
 
 ## Asegúrate de que las URLs base de las versiones a probar estén accesibles:
@@ -268,4 +266,4 @@ Si necesitas cambiar las URLs base de las versiones o modificar los patrones de 
   ```javascript
   runCypress("v5.96.1", "http://localhost:2368/ghost", "cypress/e2e/tests/v5.96.1//*", "cypress/screenshots");
   ```
-```
+
