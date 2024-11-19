@@ -188,4 +188,71 @@ ghost start
 
 Los reportes generados se almacenarán en la carpeta reports dentro de cada versión de Kraken.
 
+Aquí tienes el contenido en Markdown listo para pegar en tu README.md:
+
+
+# Pruebas de Regresión Visual con Cypress y BackstopJS
+
+Este proyecto permite ejecutar pruebas de regresión visual para comparar capturas de pantallas generadas por Cypress en dos versiones diferentes de la aplicación. A continuación, se describe el flujo para ejecutar las pruebas:
+
+---
+
+## Requisitos Previos
+
+1. Tener instalado **Node.js 18** utilizando [nvm](https://github.com/nvm-sh/nvm):
+   ```bash
+   nvm install 18
+   nvm use 18
+Asegúrate de que las URLs base de las versiones a probar estén accesibles:
+Versión 4.5: http://localhost:2369/ghost
+Versión 5.96.1: http://localhost:2368/ghost
+Instalación
+Clona este repositorio:
+
+bash
+Copiar código
+git clone https://github.com/tu-repositorio.git
+cd tu-repositorio
+Accede a la carpeta del proyecto Cypress:
+
+bash
+Copiar código
+cd cypress
+Instala las dependencias necesarias:
+
+bash
+Copiar código
+npm install
+Flujo de Ejecución
+Paso 1: Ejecutar las Pruebas de Regresión Visual
+Ejecuta el siguiente comando para generar las capturas de pantalla, crear los escenarios y ejecutar las pruebas:
+
+bash
+Copiar código
+node automation.js
+Este script realiza lo siguiente:
+
+Ejecuta las pruebas de Cypress en la versión 4.5 y guarda las capturas en screenshots/v4.5.
+Ejecuta las pruebas de Cypress en la versión 5.96.1 y guarda las capturas en screenshots/v5.96.1.
+Renombra las capturas, asegurando que:
+Solo se incluyan capturas con "step" en su nombre.
+Los nombres sean consistentes entre las versiones.
+Genera el archivo backstop.json con los escenarios de comparación visual.
+Genera referencias visuales con BackstopJS basadas en las capturas de v4.5.
+Compara las capturas de v5.96.1 con las referencias generadas.
+Abre automáticamente el reporte de BackstopJS en el navegador.
+
+Personalización
+Si necesitas cambiar las URLs base de las versiones o modificar los patrones de pruebas, puedes hacerlo en el archivo automation.js:
+
+Base URL de la versión 4.5:
+javascript
+Copiar código
+runCypress("v4.5", "http://localhost:2369/ghost", "cypress/e2e/tests/v4.5/**/*", "cypress/screenshots");
+Base URL de la versión 5.96.1:
+javascript
+Copiar código
+runCypress("v5.96.1", "http://localhost:2368/ghost", "cypress/e2e/tests/v5.96.1/**/*", "cypress/screenshots");
+
+
 
