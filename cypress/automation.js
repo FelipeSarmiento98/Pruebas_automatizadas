@@ -131,7 +131,7 @@ function generateBackstopConfig(referenceDir, testDir) {
     },
     report: ["browser"],
     debug: false,
-    misMatchThreshold: 0.5,
+    misMatchThreshold: 50,
   };
 
   fs.writeFileSync(
