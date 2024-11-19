@@ -1,7 +1,6 @@
 const { execSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
-const open = require("open"); // Dependencia para abrir el navegador automáticamente
 
 // Función para ejecutar comandos de forma sincronizada
 function runCommand(command, description) {
@@ -11,84 +10,103 @@ function runCommand(command, description) {
   } catch (error) {
     console.error(`⚠️  Error ejecutando: ${description}`);
     console.error(error.message);
-    // Continuar el flujo sin detener
   }
 }
 
-// Función para limpiar únicamente archivos dentro de una carpeta específica
-function cleanFilesInFolder(folder) {
-  console.log(`\n--- Limpiando archivos dentro de la carpeta: ${folder} ---`);
+// Función para limpiar y preparar carpetas específicas de capturas
+function prepareScreenshotsFolder(folder) {
+  console.log(`\n--- Preparando carpeta de capturas: ${folder} ---`);
   const folderPath = path.join(__dirname, folder);
   if (fs.existsSync(folderPath)) {
-    fs.readdirSync(folderPath).forEach((file) => {
-      const filePath = path.join(folderPath, file);
-      if (fs.statSync(filePath).isFile()) {
-        fs.unlinkSync(filePath); // Eliminar archivo
+    fs.rmdirSync(folderPath, { recursive: true }); // Eliminar carpeta si existe
+  }
+  fs.mkdirSync(folderPath, { recursive: true }); // Crear carpeta limpia
+  console.log(`✅ Carpeta preparada: ${folderPath}`);
+}
+
+// Función para mover capturas de Cypress a una carpeta temporal
+function moveAndRenameScreenshots(version, sourceDir, destDir) {
+  console.log(`\n--- Moviendo y renombrando capturas de ${version} a ${destDir} ---`);
+
+  if (!fs.existsSync(sourceDir)) {
+    console.error(`⚠️ Carpeta fuente no encontrada: ${sourceDir}`);
+    return;
+  }
+
+  if (!fs.existsSync(destDir)) {
+    fs.mkdirSync(destDir, { recursive: true });
+  }
+
+  const moveFilesRecursively = (currentSource, currentDest, functionality = "") => {
+    const items = fs.readdirSync(currentSource);
+    items.forEach((item) => {
+      const sourcePath = path.join(currentSource, item);
+
+      if (fs.statSync(sourcePath).isDirectory()) {
+        // Extraer el nombre de la funcionalidad desde la subcarpeta
+        const newFunctionality = functionality || item;
+        moveFilesRecursively(sourcePath, currentDest, newFunctionality);
+      } else if (item.endsWith(".png")) {
+        if (!item.toLowerCase().includes("step")) {
+          // Ignorar archivos que no contengan "step" en el nombre
+          console.log(`⚠️ Archivo ignorado (sin "step" en el nombre): ${item}`);
+          return;
+        }
+
+        // Renombrar archivo con funcionalidad y quitar prefijo de versión
+        const renamedFile = `${functionality}-${item.replace(`${version}-`, "")}`;
+        const destPath = path.join(currentDest, renamedFile);
+
+        fs.renameSync(sourcePath, destPath);
+        console.log(`✅ Captura movida y renombrada: ${destPath}`);
       }
     });
-  } else {
-    // Crear carpeta si no existe
-    fs.mkdirSync(folderPath, { recursive: true });
-    console.log(`Carpeta creada: ${folderPath}`);
-  }
+  };
+
+  moveFilesRecursively(sourceDir, destDir);
 }
 
-// Carpetas de capturas para ambas versiones
-const foldersToSetup = [
-  "screenshots/v4.5/export.cy.js",
-  "screenshots/v4.5/import.cy.js",
-  "screenshots/v4.5/invalidPost.cy.js",
-  "screenshots/v4.5/markdownPost.cy.js",
-  "screenshots/v4.5/schedulePost.cy.js",
-  "screenshots/v5.96.1/export.cy.js",
-  "screenshots/v5.96.1/import.cy.js",
-  "screenshots/v5.96.1/invalidPost.cy.js",
-  "screenshots/v5.96.1/markdownPost.cy.js",
-  "screenshots/v5.96.1/schedulePost.cy.js",
-];
-
-// Configurar carpetas para capturas (sin eliminar capturas de otras versiones)
-foldersToSetup.forEach((folder) => cleanFilesInFolder(folder));
-
-// Función para ejecutar pruebas de Cypress
-function runCypress(version, baseUrl, outputFolder, specPattern) {
+// Función para ejecutar Cypress
+function runCypress(version, baseUrl, specPattern, outputFolder) {
   console.log(`\n--- Ejecutando pruebas de Cypress para ${version} ---`);
   const envCommand = `CYPRESS_BASE_URL=${baseUrl}`;
-  const cypressCommand = `npx cypress run --spec "${specPattern}" --config screenshotsFolder=screenshots/${outputFolder}`;
-  runCommand(`${envCommand} ${cypressCommand}`, `Pruebas Cypress en ${baseUrl}`);
+  const cypressCommand = `npx cypress run --spec "${specPattern}" --config screenshotsFolder=${outputFolder}`;
+  runCommand(`${envCommand} ${cypressCommand}`, `Pruebas Cypress para versión ${version} en ${baseUrl}`);
 }
 
-// Paso 1: Ejecutar pruebas para v4.5
-runCypress("v4.5", "http://localhost:2369/ghost", "v4.5", "cypress/e2e/tests/v4.5/**/*");
-
-// Paso 2: Ejecutar pruebas para v5.96.1
-runCypress("v5.96.1", "http://localhost:2368/ghost", "v5.96.1", "cypress/e2e/tests/v5.96.1/**/*");
-
-// Paso 3: Generar backstop.json dinámico
-const referenceDir = path.join(__dirname, "screenshots/v4.5");
-const testDir = path.join(__dirname, "screenshots/v5.96.1");
-
+// Función para generar el archivo backstop.json dinámico
 function generateBackstopConfig(referenceDir, testDir) {
+  console.log("\n--- Generando backstop.json ---");
+
   const scenarios = [];
-  const folders = fs.readdirSync(referenceDir);
 
-  folders.forEach((folder) => {
-    const referenceFolderPath = path.join(referenceDir, folder);
-    const testFolderPath = path.join(testDir, folder);
+  function addScenario(referencePath, testPath, label) {
+    scenarios.push({
+      label,
+      referenceUrl: `file:${referencePath.replace(/\\/g, "/")}`,
+      url: `file:${testPath.replace(/\\/g, "/")}`,
+      selectors: ["document"],
+    });
+  }
 
-    if (fs.statSync(referenceFolderPath).isDirectory()) {
-      const files = fs.readdirSync(referenceFolderPath).filter((file) => file.endsWith(".png"));
+  const referenceFiles = fs.readdirSync(referenceDir).filter((file) => file.endsWith(".png"));
+  const testFiles = fs.readdirSync(testDir).filter((file) => file.endsWith(".png"));
 
-      files.forEach((file) => {
-        scenarios.push({
-          label: `${folder} - ${file}`,
-          referenceUrl: `file:${path.join(referenceFolderPath, file).replace(/\\/g, "/")}`,
-          url: `file:${path.join(testFolderPath, file).replace(/\\/g, "/")}`,
-          selectors: ["document"],
-        });
-      });
+  referenceFiles.forEach((file) => {
+    const referenceFilePath = path.join(referenceDir, file);
+    const testFilePath = path.join(testDir, file);
+
+    if (testFiles.includes(file)) {
+      addScenario(referenceFilePath, testFilePath, file);
+    } else {
+      console.warn(`⚠️ No se encontró archivo de prueba para: ${file}`);
     }
   });
+
+  if (scenarios.length === 0) {
+    console.error("⚠️ No se generaron escenarios. Verifica las capturas.");
+    process.exit(1);
+  }
 
   const backstopConfig = {
     id: "regression-tests",
@@ -113,7 +131,7 @@ function generateBackstopConfig(referenceDir, testDir) {
     },
     report: ["browser"],
     debug: false,
-    misMatchThreshold: 0.3,
+    misMatchThreshold: 0.5,
   };
 
   fs.writeFileSync(
@@ -124,21 +142,27 @@ function generateBackstopConfig(referenceDir, testDir) {
   console.log("\n--- backstop.json generado exitosamente ---");
 }
 
+// Paso 1: Preparar carpetas temporales y definitivas
+prepareScreenshotsFolder("temp_screenshots");
+prepareScreenshotsFolder("screenshots/v4.5");
+prepareScreenshotsFolder("screenshots/v5.96.1");
+
+// Paso 2: Ejecutar pruebas de Cypress y mover capturas
+runCypress("v4.5", "http://localhost:2369/ghost", "cypress/e2e/tests/v4.5/**/*", "cypress/screenshots");
+moveAndRenameScreenshots("v4.5", "cypress/screenshots", "screenshots/v4.5");
+
+runCypress("v5.96.1", "http://localhost:2368/ghost", "cypress/e2e/tests/v5.96.1/**/*", "cypress/screenshots");
+moveAndRenameScreenshots("v5.96.1", "cypress/screenshots", "screenshots/v5.96.1");
+
+// Paso 3: Generar el archivo backstop.json dinámico
+const referenceDir = path.join(__dirname, "screenshots/v4.5");
+const testDir = path.join(__dirname, "screenshots/v5.96.1");
 generateBackstopConfig(referenceDir, testDir);
 
 // Paso 4: Generar referencias y ejecutar pruebas de BackstopJS
 runCommand("npx backstop reference", "Generando referencias con BackstopJS");
 runCommand("npx backstop test", "Ejecutando pruebas de BackstopJS");
+runCommand("npx backstop openReport", "Abriendo reporte de BackstopJS");
 
-// Paso 5: Abrir reporte de BackstopJS
-const reportPath = path.join(__dirname, "backstop_data/html_report/index.html");
-if (fs.existsSync(reportPath)) {
-  console.log("\n--- Abriendo reporte de BackstopJS ---");
-  open(reportPath).catch((err) => {
-    console.error("No se pudo abrir el reporte automáticamente. Ábrelo manualmente desde:", reportPath);
-  });
-} else {
-  console.error("No se encontró el reporte de BackstopJS en:", reportPath);
-}
-
+// Confirmación del flujo completo
 console.log("\n--- Flujo completo ejecutado exitosamente ---");

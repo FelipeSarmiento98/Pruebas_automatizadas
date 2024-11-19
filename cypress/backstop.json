@@ -7,7 +7,192 @@
       "height": 1080
     }
   ],
-  "scenarios": [],
+  "scenarios": [
+    {
+      "label": "export.cy.js-step-1-visit-page.png",
+      "referenceUrl": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v4.5/export.cy.js-step-1-visit-page.png",
+      "url": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v5.96.1/export.cy.js-step-1-visit-page.png",
+      "selectors": [
+        "document"
+      ]
+    },
+    {
+      "label": "export.cy.js-step-2-click-export.png",
+      "referenceUrl": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v4.5/export.cy.js-step-2-click-export.png",
+      "url": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v5.96.1/export.cy.js-step-2-click-export.png",
+      "selectors": [
+        "document"
+      ]
+    },
+    {
+      "label": "export.cy.js-step-3-confirm-export.png",
+      "referenceUrl": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v4.5/export.cy.js-step-3-confirm-export.png",
+      "url": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v5.96.1/export.cy.js-step-3-confirm-export.png",
+      "selectors": [
+        "document"
+      ]
+    },
+    {
+      "label": "export.cy.js-step-4-validate-response.png",
+      "referenceUrl": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v4.5/export.cy.js-step-4-validate-response.png",
+      "url": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v5.96.1/export.cy.js-step-4-validate-response.png",
+      "selectors": [
+        "document"
+      ]
+    },
+    {
+      "label": "import.cy.js-step-1-visit-page.png",
+      "referenceUrl": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v4.5/import.cy.js-step-1-visit-page.png",
+      "url": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v5.96.1/import.cy.js-step-1-visit-page.png",
+      "selectors": [
+        "document"
+      ]
+    },
+    {
+      "label": "import.cy.js-step-2-open-import-modal.png",
+      "referenceUrl": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v4.5/import.cy.js-step-2-open-import-modal.png",
+      "url": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v5.96.1/import.cy.js-step-2-open-import-modal.png",
+      "selectors": [
+        "document"
+      ]
+    },
+    {
+      "label": "import.cy.js-step-3-attach-invalid-file.png",
+      "referenceUrl": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v4.5/import.cy.js-step-3-attach-invalid-file.png",
+      "url": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v5.96.1/import.cy.js-step-3-attach-invalid-file.png",
+      "selectors": [
+        "document"
+      ]
+    },
+    {
+      "label": "import.cy.js-step-4-validate-error-toast.png",
+      "referenceUrl": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v4.5/import.cy.js-step-4-validate-error-toast.png",
+      "url": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v5.96.1/import.cy.js-step-4-validate-error-toast.png",
+      "selectors": [
+        "document"
+      ]
+    },
+    {
+      "label": "import.cy.js-step-5-validate-no-confirmation-modal.png",
+      "referenceUrl": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v4.5/import.cy.js-step-5-validate-no-confirmation-modal.png",
+      "url": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v5.96.1/import.cy.js-step-5-validate-no-confirmation-modal.png",
+      "selectors": [
+        "document"
+      ]
+    },
+    {
+      "label": "invalidPost.cy.js-step-1-visit-page.png",
+      "referenceUrl": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v4.5/invalidPost.cy.js-step-1-visit-page.png",
+      "url": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v5.96.1/invalidPost.cy.js-step-1-visit-page.png",
+      "selectors": [
+        "document"
+      ]
+    },
+    {
+      "label": "invalidPost.cy.js-step-2-fill-content.png",
+      "referenceUrl": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v4.5/invalidPost.cy.js-step-2-fill-content.png",
+      "url": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v5.96.1/invalidPost.cy.js-step-2-fill-content.png",
+      "selectors": [
+        "document"
+      ]
+    },
+    {
+      "label": "invalidPost.cy.js-step-3-attempt-publish.png",
+      "referenceUrl": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v4.5/invalidPost.cy.js-step-3-attempt-publish.png",
+      "url": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v5.96.1/invalidPost.cy.js-step-3-attempt-publish.png",
+      "selectors": [
+        "document"
+      ]
+    },
+    {
+      "label": "markdownPost.cy.js-step-1-visit-page.png",
+      "referenceUrl": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v4.5/markdownPost.cy.js-step-1-visit-page.png",
+      "url": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v5.96.1/markdownPost.cy.js-step-1-visit-page.png",
+      "selectors": [
+        "document"
+      ]
+    },
+    {
+      "label": "markdownPost.cy.js-step-2-fill-title.png",
+      "referenceUrl": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v4.5/markdownPost.cy.js-step-2-fill-title.png",
+      "url": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v5.96.1/markdownPost.cy.js-step-2-fill-title.png",
+      "selectors": [
+        "document"
+      ]
+    },
+    {
+      "label": "markdownPost.cy.js-step-3-fill-content.png",
+      "referenceUrl": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v4.5/markdownPost.cy.js-step-3-fill-content.png",
+      "url": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v5.96.1/markdownPost.cy.js-step-3-fill-content.png",
+      "selectors": [
+        "document"
+      ]
+    },
+    {
+      "label": "markdownPost.cy.js-step-4-publish-post.png",
+      "referenceUrl": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v4.5/markdownPost.cy.js-step-4-publish-post.png",
+      "url": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v5.96.1/markdownPost.cy.js-step-4-publish-post.png",
+      "selectors": [
+        "document"
+      ]
+    },
+    {
+      "label": "markdownPost.cy.js-step-5-validate-success-modal.png",
+      "referenceUrl": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v4.5/markdownPost.cy.js-step-5-validate-success-modal.png",
+      "url": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v5.96.1/markdownPost.cy.js-step-5-validate-success-modal.png",
+      "selectors": [
+        "document"
+      ]
+    },
+    {
+      "label": "markdownPost.cy.js-step-6-validate-post-exists.png",
+      "referenceUrl": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v4.5/markdownPost.cy.js-step-6-validate-post-exists.png",
+      "url": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v5.96.1/markdownPost.cy.js-step-6-validate-post-exists.png",
+      "selectors": [
+        "document"
+      ]
+    },
+    {
+      "label": "schedulePost.cy.js-step-1-visit-page.png",
+      "referenceUrl": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v4.5/schedulePost.cy.js-step-1-visit-page.png",
+      "url": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v5.96.1/schedulePost.cy.js-step-1-visit-page.png",
+      "selectors": [
+        "document"
+      ]
+    },
+    {
+      "label": "schedulePost.cy.js-step-2-fill-title.png",
+      "referenceUrl": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v4.5/schedulePost.cy.js-step-2-fill-title.png",
+      "url": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v5.96.1/schedulePost.cy.js-step-2-fill-title.png",
+      "selectors": [
+        "document"
+      ]
+    },
+    {
+      "label": "schedulePost.cy.js-step-3-fill-content.png",
+      "referenceUrl": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v4.5/schedulePost.cy.js-step-3-fill-content.png",
+      "url": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v5.96.1/schedulePost.cy.js-step-3-fill-content.png",
+      "selectors": [
+        "document"
+      ]
+    },
+    {
+      "label": "schedulePost.cy.js-step-4-schedule-post.png",
+      "referenceUrl": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v4.5/schedulePost.cy.js-step-4-schedule-post.png",
+      "url": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v5.96.1/schedulePost.cy.js-step-4-schedule-post.png",
+      "selectors": [
+        "document"
+      ]
+    },
+    {
+      "label": "schedulePost.cy.js-step-5-validate-scheduled-post.png",
+      "referenceUrl": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v4.5/schedulePost.cy.js-step-5-validate-scheduled-post.png",
+      "url": "file:/Users/jhoansarmiento/Documents/MISO UNIADES/Pruebas Automatizadas/PruebasAutomatzadas/Pruebas_automatizadas/cypress/screenshots/v5.96.1/schedulePost.cy.js-step-5-validate-scheduled-post.png",
+      "selectors": [
+        "document"
+      ]
+    }
+  ],
   "paths": {
     "bitmaps_reference": "backstop_data/bitmaps_reference",
     "bitmaps_test": "backstop_data/bitmaps_test",
@@ -23,5 +208,5 @@
     "browser"
   ],
   "debug": false,
-  "misMatchThreshold": 0.3
+  "misMatchThreshold": 0.99
 }
