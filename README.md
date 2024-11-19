@@ -203,56 +203,69 @@ Este proyecto permite ejecutar pruebas de regresión visual para comparar captur
    ```bash
    nvm install 18
    nvm use 18
-Asegúrate de que las URLs base de las versiones a probar estén accesibles:
-Versión 4.5: http://localhost:2369/ghost
-Versión 5.96.1: http://localhost:2368/ghost
-Instalación
+¡Claro! Aquí tienes el contenido en formato Markdown para tu archivo README en GitHub:
+
+```markdown
+# Proyecto de Pruebas de Regresión Visual
+
+## Asegúrate de que las URLs base de las versiones a probar estén accesibles:
+- **Versión 4.5:** http://localhost:2369/ghost
+- **Versión 5.96.1:** http://localhost:2368/ghost
+
+## Instalación
+
 Clona este repositorio:
 
-bash
-Copiar código
+```bash
 git clone https://github.com/tu-repositorio.git
 cd tu-repositorio
+```
+
 Accede a la carpeta del proyecto Cypress:
 
-bash
-Copiar código
+```bash
 cd cypress
+```
+
 Instala las dependencias necesarias:
 
-bash
-Copiar código
+```bash
 npm install
-Flujo de Ejecución
-Paso 1: Ejecutar las Pruebas de Regresión Visual
+```
+
+## Flujo de Ejecución
+
+### Paso 1: Ejecutar las Pruebas de Regresión Visual
+
 Ejecuta el siguiente comando para generar las capturas de pantalla, crear los escenarios y ejecutar las pruebas:
 
-bash
-Copiar código
+```bash
 node automation.js
+```
+
 Este script realiza lo siguiente:
 
-Ejecuta las pruebas de Cypress en la versión 4.5 y guarda las capturas en screenshots/v4.5.
-Ejecuta las pruebas de Cypress en la versión 5.96.1 y guarda las capturas en screenshots/v5.96.1.
-Renombra las capturas, asegurando que:
-Solo se incluyan capturas con "step" en su nombre.
-Los nombres sean consistentes entre las versiones.
-Genera el archivo backstop.json con los escenarios de comparación visual.
-Genera referencias visuales con BackstopJS basadas en las capturas de v4.5.
-Compara las capturas de v5.96.1 con las referencias generadas.
-Abre automáticamente el reporte de BackstopJS en el navegador.
+1. Ejecuta las pruebas de Cypress en la versión 4.5 y guarda las capturas en `screenshots/v4.5`.
+2. Ejecuta las pruebas de Cypress en la versión 5.96.1 y guarda las capturas en `screenshots/v5.96.1`.
+3. Renombra las capturas, asegurando que:
+   - Solo se incluyan capturas con "step" en su nombre.
+   - Los nombres sean consistentes entre las versiones.
+4. Genera el archivo `backstop.json` con los escenarios de comparación visual.
+5. Genera referencias visuales con BackstopJS basadas en las capturas de v4.5.
+6. Compara las capturas de v5.96.1 con las referencias generadas.
+7. Abre automáticamente el reporte de BackstopJS en el navegador.
 
-Personalización
-Si necesitas cambiar las URLs base de las versiones o modificar los patrones de pruebas, puedes hacerlo en el archivo automation.js:
+## Personalización
 
-Base URL de la versión 4.5:
-javascript
-Copiar código
-runCypress("v4.5", "http://localhost:2369/ghost", "cypress/e2e/tests/v4.5/**/*", "cypress/screenshots");
-Base URL de la versión 5.96.1:
-javascript
-Copiar código
-runCypress("v5.96.1", "http://localhost:2368/ghost", "cypress/e2e/tests/v5.96.1/**/*", "cypress/screenshots");
+Si necesitas cambiar las URLs base de las versiones o modificar los patrones de pruebas, puedes hacerlo en el archivo `automation.js`:
 
+- **Base URL de la versión 4.5:**
+  ```javascript
+  runCypress("v4.5", "http://localhost:2369/ghost", "cypress/e2e/tests/v4.5//*", "cypress/screenshots");
+  ```
 
-
+- **Base URL de la versión 5.96.1:**
+  ```javascript
+  runCypress("v5.96.1", "http://localhost:2368/ghost", "cypress/e2e/tests/v5.96.1//*", "cypress/screenshots");
+  ```
+```
