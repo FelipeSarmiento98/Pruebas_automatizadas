@@ -1,0 +1,3 @@
+{
+ "invalid_field": "This should trigger an import error"
+}

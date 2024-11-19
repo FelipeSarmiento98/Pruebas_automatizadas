@@ -1,0 +1,27 @@
+{
+  "name": "pruebas_automatizadas",
+  "version": "1.0.0",
+  "description": "# - Pruebas de Extremo a Extremo # Integrantes:",
+  "main": "automation.js",
+  "type": "module", 
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FelipeSarmiento98/Pruebas_automatizadas.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FelipeSarmiento98/Pruebas_automatizadas/issues"
+  },
+  "homepage": "https://github.com/FelipeSarmiento98/Pruebas_automatizadas#readme",
+  "dependencies": {
+    "canvas": "^2.11.2",
+    "open": "^10.1.0",
+    "playwright": "^1.48.2",
+    "resemblejs": "^5.0.0"
+  }
+}
