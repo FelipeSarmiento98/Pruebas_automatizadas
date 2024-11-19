@@ -270,7 +270,11 @@ Si necesitas cambiar las URLs base de las versiones o modificar los patrones de 
   ```javascript
   runCypress("v5.96.1", "http://localhost:2368/ghost", "cypress/e2e/tests/v5.96.1//*", "cypress/screenshots");
   ```
-
+- **misMatchThreshold:**
+  ```javascript
+  misMatchThreshold: 50,
+  ```
+ Establece el umbral se configuro en el 50% lo que significa que las pantallas con diferencias mayor a este porcentaje no pasaran la prueba se puede configurar.
 
 # Pruebas de Regresión Visual con Kraken y Resemble.js
 
