@@ -186,9 +186,13 @@ Ghost debe estar corriendo en tu entorno local para que Kraken pueda interactuar
 ghost start
 ```
 
+## Requisitos Previos
+- Android SDK (Kraken también corre pruebas móviles )
+- Tener instalado Java (JDK 8 o superior) y configurado el JAVA_HOME en tu sistema, ya que Kraken requiere Appium.
+
+
 Los reportes generados se almacenarán en la carpeta reports dentro de cada versión de Kraken.
 
-Aquí tienes el contenido en Markdown listo para pegar en tu README.md:
 
 
 # Pruebas de Regresión Visual con Cypress y BackstopJS
@@ -266,4 +270,112 @@ Si necesitas cambiar las URLs base de las versiones o modificar los patrones de 
   ```javascript
   runCypress("v5.96.1", "http://localhost:2368/ghost", "cypress/e2e/tests/v5.96.1//*", "cypress/screenshots");
   ```
+
+
+# Pruebas de Regresión Visual con Kraken y Resemble.js
+
+Este proyecto permite realizar pruebas de regresión visual para comparar capturas de pantalla generadas por **Kraken** entre dos versiones diferentes de una aplicación. Utilizamos **Resemble.js** para identificar diferencias visuales y generar reportes en formato HTML.
+
+---
+
+## Requisitos Previos
+
+1. Tener instalados **Node.js 18** y **Node.js 16** utilizando nvm:
+   ```bash
+   nvm install 18
+   nvm install 16
+   nvm use 18
+   ```
+
+2. Instalar Kraken-Node de manera global:
+   ```bash
+   npm install -g kraken-node
+   ```
+
+3. Tener instalado Java (JDK 8 o superior) y configurado el JAVA_HOME en tu sistema, ya que Kraken requiere Appium.
+
+4. Tener instaladas las bibliotecas necesarias para canvas y playwright:
+
+   En sistemas basados en Debian/Ubuntu:
+   ```bash
+   sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
+   ```
+
+   En macOS:
+   ```bash
+   brew install pkg-config cairo pango libpng jpeg giflib librsvg
+   ```
+
+5. Tener ambas versiones de Ghost corriendo localmente:
+   - Versión 4.5: http://localhost:2369/ghost
+   - Versión 5.96.1: http://localhost:2368/ghost
+
+Cada carpeta de versión de Kraken (krakenv4.5 y krakenv5.96.1) contiene un archivo `properties.json`, donde se especifica la URL de la versión correspondiente y las credenciales de acceso. Un ejemplo del contenido del archivo es:
+
+```json
+{
+    "baseUrl": "http://localhost:2368/ghost",
+    "USERNAME": "correo@hotmail.com",
+    "PASSWORD": "pasword123"
+}
+```
+
+## Instalación
+
+### Paso 1: Clonar el proyecto
+Clona el repositorio e ingresa a la carpeta raíz:
+
+```bash
+git clone https://github.com/tu-repositorio.git
+cd tu-repositorio
+```
+
+### Paso 2: Configurar las versiones de Node.js
+En la raíz del proyecto, asegúrate de usar Node.js 18:
+
+```bash
+nvm use 18
+npm install
+```
+
+Accede a la carpeta krakenv4.5:
+
+```bash
+cd krakenv4.5
+nvm use 16
+npm install
+```
+
+Configura el archivo `properties.json` 
+
+Accede a la carpeta krakenv5.96.1:
+
+```bash
+cd ../krakenv5.96.1
+nvm use 16
+npm install
+```
+
+Configura el archivo `properties.json` 
+
+Ahora tienes configuradas ambas versiones de Node.js (16 para Kraken y 18 para el script principal), y las URLs y credenciales están listas.
+
+## Flujo de Ejecución
+
+### Paso 1: Generar Capturas de Pantalla
+Desde la raíz del proyecto, ejecuta el siguiente comando:
+
+```bash
+node automation.js
+```
+
+Este script realiza lo siguiente:
+
+1. Ejecuta pruebas con Kraken en la versión 4.5 y guarda las capturas de pantalla en `krakenv4.5/reports`.
+2. Ejecuta pruebas con Kraken en la versión 5.96.1 y guarda las capturas de pantalla en `krakenv5.96.1/reports`.
+3. Compara las capturas entre ambas versiones utilizando Resemble.js.
+4. Genera un reporte HTML con las diferencias visuales.
+
+### Paso 2: Visualizar el Reporte
+Una vez finalizado el proceso, el reporte HTML se abrirá automáticamente en tu navegador.
 
