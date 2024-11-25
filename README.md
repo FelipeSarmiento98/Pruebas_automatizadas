@@ -402,8 +402,8 @@ Este repositorio contiene una suite de pruebas automatizadas para Ghost versión
 - **Instalar dependencias:** Clona este repositorio e instala las dependencias con:
 
   ```bash
-  git clone <URL_DEL_REPOSITORIO>
-  cd <NOMBRE_DEL_REPOSITORIO>
+  git clone https://github.com/tu-repositorio.git
+  cd tu-repositorio
   npm install
   ```
 
@@ -433,9 +433,9 @@ Asegúrate de que tu instancia de Ghost esté corriendo en la URL: http://localh
 
 En el entorno de Cypress, ve a `e2e/tests/semana7`. Selecciona cualquiera de los archivos de prueba disponibles, por ejemplo:
 
-- `F01-E1-export.cy.js`
-- `F02-E1-invalidPost.cy.js`
-- `F03-E3-addTag.random.cy.js`
+- `F01-E1-export-apriori.cy.js`
+- `F01-E2-export-pseudo.cy.js`
+- `F01-E3-export-random.cy.js`
 
 Haz clic en el archivo para ejecutarlo. Cypress mostrará los resultados de las pruebas en tiempo real.
 
