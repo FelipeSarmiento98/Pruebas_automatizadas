@@ -402,8 +402,8 @@ Este repositorio contiene una suite de pruebas automatizadas para Ghost versión
 - **Instalar dependencias:** Clona este repositorio e instala las dependencias con:
 
   ```bash
-  git clone https://github.com/tu-repositorio.git
-  cd tu-repositorio
+  git clone https://github.com/FelipeSarmiento98/Pruebas_automatizadas.git
+  cd Pruebas_automatizadas
   npm install
   ```
 
