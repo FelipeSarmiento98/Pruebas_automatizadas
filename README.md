@@ -383,3 +383,93 @@ Este script realiza lo siguiente:
 ### Paso 2: Visualizar el Reporte
 Una vez finalizado el proceso, el reporte HTML se abrirá automáticamente en tu navegador.
 
+¡Claro! Aquí tienes el contenido en formato Markdown:
+
+# Cypress Test Suite para Ghost v5.96.1 Semana 7 Generación de datos 
+
+Este repositorio contiene una suite de pruebas automatizadas para Ghost versión 5.96.1, desarrollada con Cypress. Incluye pruebas a-priori, pseudoaleatorias y aleatorias para funcionalidades clave de Ghost.
+
+## Requisitos previos
+
+- **Node.js:** Asegúrate de tener instalada la versión 18. Si no la tienes, puedes instalarla utilizando nvm:
+
+  ```bash
+  nvm use 18
+  ```
+
+- **Ghost v5.96.1:** Debes tener una instalación de Ghost corriendo localmente en http://localhost:2368/ghost. Puedes descargar y configurar Ghost desde su sitio oficial.
+
+- **Instalar dependencias:** Clona este repositorio e instala las dependencias con:
+
+  ```bash
+  git clone <URL_DEL_REPOSITORIO>
+  cd <NOMBRE_DEL_REPOSITORIO>
+  npm install
+  ```
+
+## Ejecutar las pruebas
+
+Sigue estos pasos para ejecutar los escenarios de prueba:
+
+### Iniciar Ghost
+
+Asegúrate de que tu instancia de Ghost esté corriendo en la URL: http://localhost:2368/ghost.
+
+### Abrir Cypress
+
+1. Navega al directorio `cypress` del proyecto:
+
+   ```bash
+   cd cypress
+   ```
+
+2. Ejecuta el siguiente comando para abrir el entorno interactivo de Cypress:
+
+   ```bash
+   CYPRESS_BASE_URL=http://localhost:2368/ghost npx cypress open
+   ```
+
+### Seleccionar y ejecutar los escenarios de prueba
+
+En el entorno de Cypress, ve a `e2e/tests/semana7`. Selecciona cualquiera de los archivos de prueba disponibles, por ejemplo:
+
+- `F01-E1-export.cy.js`
+- `F02-E1-invalidPost.cy.js`
+- `F03-E3-addTag.random.cy.js`
+
+Haz clic en el archivo para ejecutarlo. Cypress mostrará los resultados de las pruebas en tiempo real.
+
+## Estructura de los escenarios de prueba
+
+### F01 - Importar/Exportar
+
+Pruebas relacionadas con la funcionalidad de exportar e importar contenido.
+- Archivos: `F01-E1-export.cy.js`, `F01-E2-import.cy.js`.
+
+### F02 - Gestionar Publicaciones
+
+Pruebas enfocadas en la creación, edición y programación de publicaciones.
+- Archivos: `F02-E1-invalidPost.cy.js`, `F02-E2-markdownPost.cy.js`, `F02-E3-schedulePost.cy.js`.
+
+### F03 - Gestionar Tags
+
+Pruebas para la creación de tags con datos a-priori, pseudoaleatorios y aleatorios.
+- Archivos: `F03-E1-addTag.apriori.cy.js`, `F03-E2-addTag.pseudo.cy.js`, `F03-E3-addTag.random.cy.js`.
+
+### F04 - Personalización de Tags
+
+Pruebas para cambiar el color de los tags utilizando datos de diferentes estrategias.
+- Archivos: `F04-E1-changeColor.apriori.cy.js`, `F04-E2-changeColor.pseudo.cy.js`, `F04-E3-changeColor.random.cy.js`.
+
+### F05 - Gestión de Páginas
+
+Pruebas para la creación y personalización de páginas.
+- Archivos: `F05-E1-createPage.apriori.cy.js`, `F05-E2-createPage.pseudo.cy.js`, `F05-E3-createPage.random.cy.js`.
+
+## Notas importantes
+
+- Asegúrate de que Ghost esté corriendo en la URL especificada antes de ejecutar las pruebas.
+- Si necesitas cambiar la URL de la instancia de Ghost, actualiza la variable `CYPRESS_BASE_URL` en el comando de ejecución.
+- Cada prueba incluye capturas de pantalla automáticas que se almacenan en el directorio `cypress/screenshots`.
+
+
