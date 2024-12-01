@@ -64,6 +64,25 @@ export class EditorPage {
       cy.log('Waiting to ensure no success modal is displayed');
       cy.get('div.modal-post-success', { timeout: 5000 }).should('not.exist');
     }
+
+    validateErrorToast(errorMessage) {
+      cy.get('.toast-error') 
+        .should('be.visible')
+        .and('contain.text', errorMessage);
+    }
+
+    validatePostStatus(title, expectedStatus) {
+      // Cierra el modal de publicación si está visible
+      cy.get('[data-test-button="close-publish-flow"]') // Selector del botón "Close"
+        .should('be.visible')
+        .click();
+      cy.wait(400);
+      // Valida que el estado del post sea el esperado
+      cy.get('.post-list').contains(title).parents('.post-item') // Cambia el selector según la estructura de tu aplicación
+        .find('.post-status')
+        .should('have.text', expectedStatus);
+    }
+    
     
   }
   

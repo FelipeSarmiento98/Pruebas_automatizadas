@@ -3,25 +3,33 @@ import { editorPage } from '../../pages/semana7/editorPage';
 
 describe('F02-E1 Invalid Post Test - A Priori', () => {
   beforeEach(() => {
+    // Given: El usuario inicia sesión
     loginPage.login();
   });
 
   it('Should show an error if attempting to publish without a title', () => {
-    // Given
+    // Datos A-Priori
+    const predefinedContent = 'Este es un contenido de prueba a priori.';
+
+    // Given: Navegar al editor
     editorPage.visit();
     cy.get('.koenig-react-editor', { timeout: 10000 }).should('be.visible');
-    cy.screenshot('a-priori/InvalidPost/step-1-visit-page'); 
+    cy.screenshot('a-priori/F02-E1/step-1-visit-page');
 
-    // When
-    editorPage.fillContent('Este es un contenido de prueba a priori.');
-    cy.screenshot('a-priori/InvalidPost/step-2-fill-content'); 
+    // When: Rellenar contenido pero no el título
+    editorPage.fillContent(predefinedContent);
+    cy.screenshot('a-priori/F02-E1/step-2-fill-content');
 
     editorPage.publishPost();
     cy.wait(1000);
-    cy.screenshot('a-priori/InvalidPost/step-3-attempt-publish'); 
+    cy.screenshot('a-priori/F02-E1/step-3-attempt-publish');
 
-    // Then
-    editorPage.validateSuccessModalNotExists();
-    cy.screenshot('a-priori/InvalidPost/step-4-validate-no-success-modal'); 
+    // Then: Validar que no se muestra el modal de éxito
+    editorPage.validateSuccessModalNotExists({ timeout: 5000 });
+    cy.screenshot('a-priori/F02-E1/step-4-validate-no-success-modal');
+
+    // Validar que aparece el mensaje de error esperado
+    editorPage.validateErrorToast('Title is required.');
+    cy.screenshot('a-priori/F02-E1/step-5-validate-error-toast');
   });
 });

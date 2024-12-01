@@ -63,6 +63,16 @@ class TagPage {
     validateErrorOnForm() {
         cy.get('[data-test-task-button-state="failure"]').should('be.visible');
     }
+
+    fillTagForm(tag) {
+        if (tag.name) this.inputTagName(tag.name);
+        if (tag.slug) this.inputTagSlug(tag.slug);
+        if (tag.description) this.inputTagDescription(tag.description);
+    }
+
+    resetTagSlug() {
+        cy.get('#tag-slug').clear(); // Limpia el contenido del campo de slug
+    }
 }
 
 module.exports = { TagPage };

@@ -2,46 +2,50 @@ import { loginPage } from '../../pages/semana7/loginPage';
 import { migrationPage } from '../../pages/semana7/migrationPage';
 import { faker } from '@faker-js/faker';
 
-describe('F01-E2 Import Invalid File Test - Fully Random', () => {
+describe('F01-E6 Import Invalid File Test - Fully Random', () => {
   beforeEach(() => {
-    // Inicia sesión antes de cada prueba
+    // Given: El usuario inicia sesión
     loginPage.login();
   });
 
   it('Should display an error when importing a randomly generated invalid file', () => {
-    // Generar un archivo con contenido completamente aleatorio
+    // Generar contenido aleatorio
     const randomInvalidFileContent = {
-      randomKey: faker.lorem.words(faker.number.int({ min: 1, max: 10 })), // Entre 1 y 10 palabras aleatorias
-      anotherRandomField: faker.string.uuid(), // UUID completamente aleatorio
+      randomKey: faker.lorem.words(faker.number.int({ min: 1, max: 10 })), // Palabras aleatorias
+      anotherRandomField: faker.string.uuid(), // UUID aleatorio
       randomNumber: faker.number.int({ min: 1, max: 1000 }), // Número aleatorio
-      randomBoolean: faker.datatype.boolean(), // Valor booleano aleatorio
+      randomBoolean: faker.datatype.boolean(), // Booleano aleatorio
     };
 
-    // Registrar el contenido generado para depuración
-    cy.log('Generated File Content:', JSON.stringify(randomInvalidFileContent));
+    // Registrar el contenido generado para facilitar depuración
+    cy.log('Generated Random File Content:', JSON.stringify(randomInvalidFileContent));
 
-    // Escribir el archivo en la carpeta fixtures
-    cy.writeFile('cypress/fixtures/random-invalid.json', randomInvalidFileContent);
+    // Escribir el archivo aleatorio en una carpeta temporal
+    const randomInvalidFilePath = 'cypress/fixtures/random-invalid.json';
+    cy.writeFile(randomInvalidFilePath, randomInvalidFileContent);
 
-    // Navegar a la página de migración
+    // Validar que el archivo se haya generado correctamente
+    cy.readFile(randomInvalidFilePath).should('deep.equal', randomInvalidFileContent);
+
+    // Given: Navegar a la página de migración
     migrationPage.visit();
     cy.get('button[title="Import"]').should('be.visible');
-    cy.screenshot('random/Import/step-1-visit-page');
+    cy.screenshot('random/F01-E6/step-1-visit-page');
 
-    // Abrir el modal de importación
+    // When: Abrir el modal de importación
     migrationPage.openImportModal();
-    cy.screenshot('random/Import/step-2-open-import-modal');
+    cy.screenshot('random/F01-E6/step-2-open-import-modal');
 
-    // Adjuntar el archivo generado
+    // Adjuntar el archivo aleatorio
     migrationPage.attachFile('random-invalid.json');
-    cy.screenshot('random/Import/step-3-attach-invalid-file');
+    cy.screenshot('random/F01-E6/step-3-attach-invalid-file');
 
-    // Validar que se muestra un mensaje de error
+    // Then: Validar mensaje de error
     migrationPage.validateErrorToast('Error: Unable to process random file.');
-    cy.screenshot('random/Import/step-4-validate-error-toast');
+    cy.screenshot('random/F01-E6/step-4-validate-error-toast');
 
-    // Validar que no se muestre un modal de confirmación
+    // Validar que no se muestra un modal de confirmación
     migrationPage.validateConfirmationModalNotExists();
-    cy.screenshot('random/Import/step-5-validate-no-confirmation-modal');
+    cy.screenshot('random/F01-E6/step-5-validate-no-confirmation-modal');
   });
 });
