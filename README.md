@@ -219,8 +219,8 @@ Este proyecto permite ejecutar pruebas de regresión visual para comparar captur
 Clona este repositorio:
 
 ```bash
-git clone https://github.com/tu-repositorio.git
-cd tu-repositorio
+git clone https://github.com/FelipeSarmiento98/Pruebas_automatizadas.git
+cd Pruebas_automatizadas
 ```
 
 Accede a la carpeta del proyecto Cypress:
@@ -330,8 +330,8 @@ Cada carpeta de versión de Kraken (krakenv4.5 y krakenv5.96.1) contiene un arch
 Clona el repositorio e ingresa a la carpeta raíz:
 
 ```bash
-git clone https://github.com/tu-repositorio.git
-cd tu-repositorio
+git clone https://github.com/FelipeSarmiento98/Pruebas_automatizadas.git
+cd Pruebas_automatizadas
 ```
 
 ### Paso 2: Configurar las versiones de Node.js
