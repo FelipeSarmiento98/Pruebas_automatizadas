@@ -1,0 +1,53 @@
+[
+    {
+      "name": "Electric Revolution",
+      "description": "Explora el futuro de la movilidad eléctrica en la industria automotriz. Desde vehículos eléctricos hasta infraestructuras de carga innovadoras.",
+      "slug": "electric-cars"
+    },
+    {
+      "name": "Aviation Tech",
+      "description": "Sumérgete en las últimas innovaciones en la industria aeronáutica. Conoce los avances en aviones eléctricos y vuelos sostenibles.",
+      "slug": "aviation-innovations"
+    },
+    {
+      "name": "Supercars Unleashed",
+      "description": "Descubre el poder y la ingeniería detrás de los superdeportivos más rápidos del mundo. Diseño, rendimiento y velocidad sin límites.",
+      "slug": "supercars"
+    },
+    {
+      "name": "Autonomous Vehicles",
+      "description": "El futuro de los vehículos autónomos está aquí. Aprende cómo la inteligencia artificial está transformando el transporte y la seguridad vial.",
+      "slug": "self-driving"
+    },
+    {
+      "name": "Flight Beyond Limits",
+      "description": "Explora las fronteras de la aviación. Desde jets supersónicos hasta exploración espacial, descubre los avances en la aeronáutica moderna.",
+      "slug": "modern-aviation"
+    },
+    {
+      "name": "Classic Cars",
+      "description": "Un tributo a los clásicos del mundo automotriz. Aprende sobre restauraciones, historia y los modelos más icónicos.",
+      "slug": "classic-cars"
+    },
+    {
+      "name": "Hybrid Technology",
+      "description": "La combinación perfecta de eficiencia y rendimiento. Descubre cómo los vehículos híbridos están redefiniendo la movilidad.",
+      "slug": "hybrid-vehicles"
+    },
+    {
+      "name": "Aerospace Engineering",
+      "description": "Detrás de los bastidores de la ingeniería aeroespacial. Descubre cómo se construyen los aviones y naves espaciales del mañana.",
+      "slug": "aerospace"
+    },
+    {
+      "name": "Motorsport Legends",
+      "description": "Revive la emoción de las carreras de autos más legendarias. Fórmula 1, Le Mans y mucho más.",
+      "slug": "motorsports"
+    },
+    {
+      "name": "Luxury Aircraft",
+      "description": "El lujo llevado a los cielos. Descubre los jets privados más exclusivos y cómo redefinen los viajes aéreos de lujo.",
+      "slug": "private-jets"
+    }
+  ]
+  
