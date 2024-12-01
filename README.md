@@ -383,93 +383,114 @@ Este script realiza lo siguiente:
 ### Paso 2: Visualizar el Reporte
 Una vez finalizado el proceso, el reporte HTML se abrirá automáticamente en tu navegador.
 
-¡Claro! Aquí tienes el contenido en formato Markdown:
 
-# Cypress Test Suite para Ghost v5.96.1 Validación de datos 
+# Cypress Test Suite para Ghost v5.96.1 - Validación de Datos
 
 Este repositorio contiene una suite de pruebas automatizadas para Ghost versión 5.96.1, desarrollada con Cypress. Incluye pruebas a-priori, pseudoaleatorias y aleatorias para funcionalidades clave de Ghost.
 
-## Requisitos previos
+## Requisitos Previos
 
-- **Node.js:** Asegúrate de tener instalada la versión 18. Si no la tienes, puedes instalarla utilizando nvm:
-
+- **Node.js**: Asegúrate de tener instalada la versión 18. Si no la tienes, puedes instalarla utilizando nvm:
   ```bash
   nvm use 18
   ```
+- **Ghost v5.96.1**: Debes tener una instalación de Ghost corriendo localmente en `http://localhost:2368/ghost`. Puedes descargar y configurar Ghost desde su sitio oficial.
 
-- **Ghost v5.96.1:** Debes tener una instalación de Ghost corriendo localmente en http://localhost:2368/ghost. Puedes descargar y configurar Ghost desde su sitio oficial.
-
-- **Instalar dependencias:** Clona este repositorio e instala las dependencias con:
-
+- **Instalar dependencias**: Clona este repositorio e instala las dependencias con:
   ```bash
   git clone https://github.com/FelipeSarmiento98/Pruebas_automatizadas.git
   cd Pruebas_automatizadas
   npm install
   ```
 
-## Ejecutar las pruebas
+## Ejecutar las Pruebas
 
-Sigue estos pasos para ejecutar los escenarios de prueba:
+1. **Iniciar Ghost**  
+   Asegúrate de que tu instancia de Ghost esté corriendo en la URL: `http://localhost:2368/ghost`.
 
-### Iniciar Ghost
-
-Asegúrate de que tu instancia de Ghost esté corriendo en la URL: http://localhost:2368/ghost.
-
-### Abrir Cypress
-
-1. Navega al directorio `cypress` del proyecto:
-
+2. **Abrir Cypress**  
+   Navega al directorio `cypress` del proyecto:
    ```bash
    cd cypress
    ```
-
-2. Ejecuta el siguiente comando para abrir el entorno interactivo de Cypress:
-
+   Ejecuta el siguiente comando para abrir el entorno interactivo de Cypress:
    ```bash
    CYPRESS_BASE_URL=http://localhost:2368/ghost npx cypress open
    ```
 
-### Seleccionar y ejecutar los escenarios de prueba
+3. **Seleccionar y Ejecutar los Escenarios de Prueba**  
+   En el entorno de Cypress, ve a `e2e/tests/semana7`. Selecciona cualquiera de los archivos de prueba disponibles, por ejemplo:
+   - `F01-E1-export-apriori.cy.js`
+   - `F02-E2-markdownPost-pseudo.cy.js`
+   - `F04-E3-roleManagement-random.cy.js`
 
-En el entorno de Cypress, ve a `e2e/tests/semana7`. Selecciona cualquiera de los archivos de prueba disponibles, por ejemplo:
+   Haz clic en el archivo para ejecutarlo. Cypress mostrará los resultados de las pruebas en tiempo real.
 
-- `F01-E1-export-apriori.cy.js`
-- `F01-E2-export-pseudo.cy.js`
-- `F01-E3-export-random.cy.js`
-
-Haz clic en el archivo para ejecutarlo. Cypress mostrará los resultados de las pruebas en tiempo real.
-
-## Estructura de los escenarios de prueba
+## Estructura de los Escenarios de Prueba
 
 ### F01 - Importar/Exportar
-
 Pruebas relacionadas con la funcionalidad de exportar e importar contenido.
-- Archivos: `F01-E1-export.cy.js`, `F01-E2-import.cy.js`.
+
+Archivos:
+- `F01-E1-export-apriori.cy.js`
+- `F01-E2-import-pseudo.cy.js`
+- `F01-E3-export-random.cy.js`
 
 ### F02 - Gestionar Publicaciones
-
 Pruebas enfocadas en la creación, edición y programación de publicaciones.
-- Archivos: `F02-E1-invalidPost.cy.js`, `F02-E2-markdownPost.cy.js`, `F02-E3-schedulePost.cy.js`.
+
+Archivos:
+- `F02-E1-invalidPost-apriori.cy.js`
+- `F02-E2-markdownPost-pseudo.cy.js`
+- `F02-E3-schedulePost-random.cy.js`
 
 ### F03 - Gestionar Tags
-
 Pruebas para la creación de tags con datos a-priori, pseudoaleatorios y aleatorios.
-- Archivos: `F03-E1-addTag.apriori.cy.js`, `F03-E2-addTag.pseudo.cy.js`, `F03-E3-addTag.random.cy.js`.
 
-### F04 - Personalización de Tags
+Archivos:
+- `F03-E1-addTag-apriori.cy.js`
+- `F03-E2-addTag-pseudo.cy.js`
+- `F03-E3-addTag-random.cy.js`
 
-Pruebas para cambiar el color de los tags utilizando datos de diferentes estrategias.
-- Archivos: `F04-E1-changeColor.apriori.cy.js`, `F04-E2-changeColor.pseudo.cy.js`, `F04-E3-changeColor.random.cy.js`.
+### F04 - Gestión de Roles
+Pruebas para asignar roles a usuarios utilizando datos de diferentes estrategias.
 
-### F05 - Gestión de Páginas
+Archivos:
+- `F04-E1-roleManagement-apriori.cy.js`
+- `F04-E2-roleManagement-pseudo.cy.js`
+- `F04-E3-roleManagement-random.cy.js`
 
-Pruebas para la creación y personalización de páginas.
-- Archivos: `F05-E1-createPage.apriori.cy.js`, `F05-E2-createPage.pseudo.cy.js`, `F05-E3-createPage.random.cy.js`.
+### F05 - Configuración de Notificaciones
+Pruebas para habilitar notificaciones para diferentes eventos.
 
-## Notas importantes
+Archivos:
+- `F05-E1-notificationSettings-apriori.cy.js`
+- `F05-E2-notificationSettings-pseudo.cy.js`
+- `F05-E3-notificationSettings-random.cy.js`
 
-- Asegúrate de que Ghost esté corriendo en la URL especificada antes de ejecutar las pruebas.
-- Si necesitas cambiar la URL de la instancia de Ghost, actualiza la variable `CYPRESS_BASE_URL` en el comando de ejecución.
-- Cada prueba incluye capturas de pantalla automáticas que se almacenan en el directorio `cypress/screenshots`.
+## Cobertura de Estrategias
 
+- **Datos A-Priori**:  
+  Valida funcionalidades fundamentales bajo condiciones controladas, utilizando datos predefinidos.  
+  Ejemplos: `F01-E1`, `F02-E4`, `F04-E1`.
+
+- **Datos Pseudoaleatorios**:  
+  Explora configuraciones intermedias con datos dinámicos y controlados.  
+  Ejemplos: `F01-E2`, `F02-E2`, `F04-E2`.
+
+- **Datos Aleatorios**:  
+  Simula escenarios impredecibles para probar la robustez del sistema.  
+  Ejemplos: `F01-E3`, `F02-E3`, `F04-E3`.
+  
+
+## Notas Importantes
+
+- **URL de Ghost**:  
+  Asegúrate de que Ghost esté corriendo en la URL especificada antes de ejecutar las pruebas. Si necesitas cambiar la URL de la instancia de Ghost, actualiza la variable `CYPRESS_BASE_URL` en el comando de ejecución.
+
+- **Capturas de Pantalla**:  
+  Cada prueba incluye capturas de pantalla automáticas que se almacenan en el directorio `cypress/screenshots`.
+
+- **Organización de Escenarios**:  
+  Los archivos de prueba están organizados según funcionalidades y estrategias de datos, facilitando la ejecución de pruebas específicas.
 
