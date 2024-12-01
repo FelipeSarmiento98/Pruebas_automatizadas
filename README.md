@@ -460,14 +460,6 @@ Archivos:
 - `F04-E2-roleManagement-pseudo.cy.js`
 - `F04-E3-roleManagement-random.cy.js`
 
-### F05 - Configuración de Notificaciones
-Pruebas para habilitar notificaciones para diferentes eventos.
-
-Archivos:
-- `F05-E1-notificationSettings-apriori.cy.js`
-- `F05-E2-notificationSettings-pseudo.cy.js`
-- `F05-E3-notificationSettings-random.cy.js`
-
 ## Cobertura de Estrategias
 
 - **Datos A-Priori**:  
