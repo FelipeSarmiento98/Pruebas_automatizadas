@@ -385,7 +385,7 @@ Una vez finalizado el proceso, el reporte HTML se abrirá automáticamente en tu
 
 ¡Claro! Aquí tienes el contenido en formato Markdown:
 
-# Cypress Test Suite para Ghost v5.96.1 Semana 7 Generación de datos 
+# Cypress Test Suite para Ghost v5.96.1 Validación de datos 
 
 Este repositorio contiene una suite de pruebas automatizadas para Ghost versión 5.96.1, desarrollada con Cypress. Incluye pruebas a-priori, pseudoaleatorias y aleatorias para funcionalidades clave de Ghost.
 
